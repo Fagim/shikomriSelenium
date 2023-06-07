@@ -35,7 +35,7 @@ public class ShikomoriHomePage {
      */
     public String getTitle() {
         wait.until(ExpectedConditions.visibilityOf(title));
-        return title.getText();
+        return title.getAttribute("title");
     }
 
 }

@@ -16,7 +16,7 @@ public class AppTest extends BaseTest
         chromeDriver.get(Properties.testsProperties.shikimoriUrl());
 
         ShikomoriHomePage shikomoriHomePage = PageFactory.initElements(chromeDriver, ShikomoriHomePage.class);
-        shikomoriHomePage.getTitle();
+        System.out.println(shikomoriHomePage.getTitle());
         Assertions.assertEquals("Шикимори", shikomoriHomePage.getTitle(), "Ожидался Шикимори, а пришёл " +
                 shikomoriHomePage.getTitle());
     }
