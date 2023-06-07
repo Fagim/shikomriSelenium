@@ -4,7 +4,6 @@ package com.bellintegrator;
 import helpers.Properties;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import pages.ShikomoriHomePage;
 
