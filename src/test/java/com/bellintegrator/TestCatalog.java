@@ -1,6 +1,5 @@
 package com.bellintegrator;
 
-
 import helpers.Properties;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -8,18 +7,16 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.support.PageFactory;
 import pages.ShikomoriHomePage;
 
-
-public class AppTest extends BaseTest
-{
+public class TestCatalog extends BaseTest {
     @Test
-    @DisplayName("Проверка тайтла страницы")
-    public void shikimoriTestTitle() {
+    @DisplayName("Проверка каталога сайта")
+    public void shikimoriTestCatalog() {
         chromeDriver.get(Properties.testsProperties.shikimoriUrl());
 
         ShikomoriHomePage shikomoriHomePage = PageFactory.initElements(chromeDriver, ShikomoriHomePage.class);
-        System.out.println(shikomoriHomePage.getTitle());
-
-        Assertions.assertEquals("Шикимори", shikomoriHomePage.getTitle(), "Ожидался Шикимори, а пришёл " +
-                shikomoriHomePage.getTitle());
+        shikomoriHomePage.clickCatalogBtn();
+        System.out.println(shikomoriHomePage.getListCatalog());
+        Assertions.assertEquals(13, shikomoriHomePage.checkSizeCatalog(), "Ожидалось 14 элементов, а пришло " +
+                shikomoriHomePage.checkSizeCatalog());
     }
 }
