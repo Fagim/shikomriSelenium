@@ -20,7 +20,7 @@ public class ShikomoriHomePage {
 
     /**
      * Конструктор сохраняет переданный объект chromeDriver  и инициализирует переменные actions и wait.
-     * @param chromeDriver объект интерфейса WebDriver
+     * @param chromeDriver объект интерфейса WebDriver Бразуер
      */
 
     public ShikomoriHomePage(WebDriver chromeDriver) {
