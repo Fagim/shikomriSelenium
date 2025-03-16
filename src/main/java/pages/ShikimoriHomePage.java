@@ -12,7 +12,8 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShikomoriHomePage {
+public class ShikimoriHomePage {
+
     WebDriver chromedriver;
     WebDriverWait wait;
     Actions actions;
@@ -23,7 +24,7 @@ public class ShikomoriHomePage {
      * @param chromeDriver объект интерфейса WebDriver Бразуер
      */
 
-    public ShikomoriHomePage(WebDriver chromeDriver) {
+    public ShikimoriHomePage(WebDriver chromeDriver) {
         this.chromedriver = chromeDriver;
         this.actions = new Actions(chromeDriver);
         this.wait = new WebDriverWait(chromeDriver, 30);
