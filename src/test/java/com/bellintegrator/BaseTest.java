@@ -3,9 +3,11 @@ package com.bellintegrator;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
@@ -18,9 +20,7 @@ public class BaseTest {
      * Метод открывает бразуер и устанавливет для него свойства перед каждым тестом
      */
     @BeforeEach
-    public void before(){
-        System.setProperty("webdriver.chrome.driver",System.getenv("CHROME_DRIVER"));
-
+    public void before() throws MalformedURLException {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-blink-features=AutomationControlled");
         options.addArguments("--disable-extensions");
@@ -31,10 +31,11 @@ public class BaseTest {
         options.addArguments("--disable-blink-features=AutomationControlled");
         options.setExperimentalOption("useAutomationExtension", false);
         options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
-        chromeDriver = new ChromeDriver(options);
+
+//        chromeDriver = new ChromeDriver(options);
+        chromeDriver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
         chromeDriver.manage().window().maximize();
         chromeDriver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-
     }
 
     /**
